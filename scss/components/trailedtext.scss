@@ -1,0 +1,49 @@
+.trailed-text {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  transform: translateY(-60vh);
+  animation: trailed 2.5s forwards;
+  animation-delay: 2.5s;
+
+  .rope {
+    height: 60vh;
+    width: 9px;
+    border-radius: 5px;
+    background: url(https://public.agriconomie.com/imgbin_rope-euclidean-drawing-png.png)
+    repeat 0 0 transparent;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    transform: translateY(-58.5vh);
+    animation: trailedReverse .8s forwards ease-in;
+    animation-delay: 5s;
+
+    &:first-child {
+      left: .1rem;
+    }
+    &:last-child {
+      right: .1rem;
+    }
+  }
+}
+
+@keyframes trailed {
+  90% {
+    transform: translateY(2px);
+  }
+
+  95% {
+    transform: translateY(-1px);
+  }
+
+  100% {
+    transform: translateY(0)
+  }
+}
+
+@keyframes trailedReverse {
+  100% {
+    transform: translateY(-120vh);
+  }
+}

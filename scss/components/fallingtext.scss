@@ -1,0 +1,74 @@
+.falling-title {
+  transform: translate3d(0, 0, 0) rotate(0);
+  animation: shake 1s forwards ease-in;
+  animation-delay: 2.45s;
+
+  span {
+    display: inline-block;
+    transform: translateY(-100vh);
+    animation: fall .8s forwards ease-in-out;
+
+    &.animation-delayed {
+      transform: translateY(-300vh) rotate(0);
+      animation: fallAndShake 1s forwards ease-in;
+    }
+  }
+
+  @for $i from 1 through 15 {
+    span:nth-child(#{$i}):not(.animation-delayed) {
+      $delay: $i / 10;
+      animation-delay: #{$delay}s;
+    }
+
+    span.animation-delayed {
+      $delay: ($i + 3) / 10;
+      animation-delay: #{$delay}s;
+    }
+  }
+}
+
+@keyframes fall {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fallAndShake {
+  1% {
+    transform: rotate(0) translateY(10);
+  }
+
+  30% {
+    transform: rotate(0) translateY(10) ;
+  }
+
+  65% {
+    transform: rotate(-30deg) translateY(0);
+  }
+
+  90% {
+    transform: rotate(-25deg) translateY(0);
+  }
+
+  100% {
+    transform: rotate(0) translateY(0);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0) rotate(1deg);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0) rotate(3deg);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0) rotate(5deg);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
