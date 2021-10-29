@@ -1,0 +1,22 @@
+@import 'components/fireflies.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-color: #343434;
+  color: white;
+}
+
+.green {
+  color: #14CE3D;
+}

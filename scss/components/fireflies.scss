@@ -7,36 +7,38 @@
 
 .firefly {
   pointer-events: none;
-  position: absolute;
+  position: absolute; 
   width: 10px;
   height: 10px;
-  border-radius: 50%;
+  border-radius: 50%; 
   background: gray;
   -webkit-animation: implode 2s ease-in-out;
-  animation: implode 2s ease-in-out;
+          animation: implode 2s ease-in-out;
   -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  box-shadow: 0px 0px 6px 2px rgba(164, 218, 176, 0.5);
+          animation-fill-mode: both;
+  box-shadow: 0px 0px 6px 2px rgba(164, 218, 176, .5);
 }
 
 .bounced {
   z-index: 2;
-  -webkit-animation: explode 0.5s ease-in;
-  animation: explode 0.5s ease-in;
+  -webkit-animation: explode .5s ease-in;
+          animation: explode .5s ease-in;
   -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
+          animation-fill-mode: both;
+} 
 
 @-webkit-keyframes implode {
   100% {
     transform: scale(0);
   }
 }
+
 @keyframes implode {
   100% {
     transform: scale(0);
   }
 }
+
 @-webkit-keyframes explode {
   50% {
     background-color: #5dd878;
@@ -50,6 +52,7 @@
     background-color: #fff;
   }
 }
+
 @keyframes explode {
   50% {
     background-color: #5dd878;
@@ -63,25 +66,3 @@
     background-color: #fff;
   }
 }
-* {
-  padding: 0;
-  margin: 0;
-}
-
-html, body {
-  min-height: 100%;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  background-color: #343434;
-  color: white;
-}
-
-.green {
-  color: #14CE3D;
-}
-
-/*# sourceMappingURL=style.css.map */
