@@ -1,4 +1,4 @@
-import FireflyCanvas from './FireflyCanvas.js';
+import FireflyCanvas from './classes/FireflyCanvas.js';
 
 new FireflyCanvas(document.querySelector('.animation-wrapper'), 20, 40).init()
 

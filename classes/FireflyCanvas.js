@@ -1,4 +1,4 @@
-import { getRandomInt, removePx, isInRange } from './functions.js';
+import { getRandomInt, removePx, isInRange } from '../helpers/functions.js';
  
 export default class FireflyCanvas {
   wrapper
@@ -14,6 +14,9 @@ export default class FireflyCanvas {
     this.poppingSpeed = poppingSpeed
   }
 
+  /**
+   * Starts all the process
+   */
   init () 
   {
     this.#observeMousePosition()
@@ -31,8 +34,10 @@ export default class FireflyCanvas {
     })
   }
 
-  // On pourra sûrement créer un objet Firefly
-  #startFireflies () {
+  /**
+   * Register a firefly as a DOM element
+   */
+  #createFirefly () {
     if (this.mousePos.x > 0 && this.mousePos.y > 0) {
       const size = getRandomInt(2,3) + 'px'
       const firefly = document.createElement('div')
@@ -50,15 +55,20 @@ export default class FireflyCanvas {
     }
   }
 
-
+  /**
+   * Automatically recreate fireflies around the mouse cursor
+   */
   #invoke () 
   {
     this.firefliesInterval = setInterval(() => {
-      this.#startFireflies()
+      this.#createFirefly()
     }, this.poppingSpeed)
   }
 
 
+  /**
+   * On click, launches an animation that making fireflies around explode
+   */
   #bounce () 
   {
     this.wrapper.addEventListener('click', (e) => {
@@ -80,7 +90,7 @@ export default class FireflyCanvas {
     
       setTimeout(() => {
         this.firefliesInterval = setInterval(() => {
-          this.#startFireflies()
+          this.#createFirefly()
         }, this.poppingSpeed)
       }, 800)
     })
