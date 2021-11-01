@@ -10,6 +10,7 @@
 
     &.animation-delayed {
       transform: translateY(-300vh) rotate(0);
+      transform-origin: center left;
       animation: fallAndShake 1s forwards ease-in;
     }
   }

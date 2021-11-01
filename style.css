@@ -117,6 +117,30 @@ table {
     background-color: #fff;
   }
 }
+.particle {
+  pointer-events: none;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(211, 211, 211, 0.719);
+  -webkit-animation: disappear 2s ease-out;
+  animation: disappear 2s ease-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  opacity: 0.5;
+}
+
+@-webkit-keyframes disappear {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes disappear {
+  100% {
+    opacity: 0;
+  }
+}
 .falling-title {
   transform: translate3d(0, 0, 0) rotate(0);
   animation: shake 1s forwards ease-in;
@@ -129,6 +153,7 @@ table {
 }
 .falling-title span.animation-delayed {
   transform: translateY(-300vh) rotate(0);
+  transform-origin: center left;
   animation: fallAndShake 1s forwards ease-in;
 }
 .falling-title span:nth-child(1):not(.animation-delayed) {
@@ -260,10 +285,14 @@ table {
 }
 .trailed-text {
   position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
   transform: translateY(-60vh);
+  -webkit-animation: trailed 2.5s forwards;
   animation: trailed 2.5s forwards;
+  -webkit-animation-delay: 2.5s;
   animation-delay: 2.5s;
 }
 .trailed-text .rope {
@@ -275,7 +304,9 @@ table {
   position: absolute;
   top: 0;
   transform: translateY(-58.5vh);
+  -webkit-animation: trailedReverse 0.8s forwards ease-in;
   animation: trailedReverse 0.8s forwards ease-in;
+  -webkit-animation-delay: 5s;
   animation-delay: 5s;
 }
 .trailed-text .rope:first-child {
@@ -285,6 +316,17 @@ table {
   right: 0.1rem;
 }
 
+@-webkit-keyframes trailed {
+  90% {
+    transform: translateY(2px);
+  }
+  95% {
+    transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @keyframes trailed {
   90% {
     transform: translateY(2px);
@@ -294,6 +336,11 @@ table {
   }
   100% {
     transform: translateY(0);
+  }
+}
+@-webkit-keyframes trailedReverse {
+  100% {
+    transform: translateY(-120vh);
   }
 }
 @keyframes trailedReverse {
